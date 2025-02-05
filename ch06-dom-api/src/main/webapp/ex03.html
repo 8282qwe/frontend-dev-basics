@@ -5,8 +5,23 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<h1>BOM(Browser Object Model)</h1>
-	<h2>3. localtion 객체</h2>
-	<h3>Refresh Page 하는 방법</h3>
+<h1>BOM(Browser Object Model)</h1>
+<h2>3. localtion 객체</h2>
+<h3>Refresh Page 하는 방법</h3>
+<!-- refresh 하기 -->
+<!-- refresh 방법 1 -->
+<button onclick="location = location;">refresh01</button>
+
+<!-- refresh 방법 2 -->
+<button onclick="location.href = location.href">refresh02</button>
+
+<!-- refresh 방법 3 -->
+<button onclick="location.assign('');">refresh03</button>
+
+<!-- refresh 방법 4 -->
+<button onclick="location.replace(location);">refresh04</button>
+
+<!-- refresh 방법 5 -->
+<button onclick="location.reload()">refresh05</button>
 </body>
 </html>

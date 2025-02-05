@@ -3,6 +3,16 @@
 <head>
 	<title>ex06</title>
 	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			setTimeout(() => {
+				let h3Element = document.createElement('h3');
+				let h3TextNode = document.createTextNode("Hello Dom");
+				h3Element.append(h3TextNode);
+				document.body.appendChild(h3Element);
+			}, 2000);
+		}
+	</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

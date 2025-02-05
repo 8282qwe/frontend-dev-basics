@@ -3,9 +3,23 @@
 <head>
 	<title>ex08</title>
 	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			setTimeout(function () {
+				let imgElement = document.createElement("img");
+				imgElement.src = '/ch06/펭귄.jpeg';
+				imgElement.alt = '펭귄~';
+				imgElement.title = '펭귄~';
+				imgElement.style.width = '400px';
+				imgElement.style.height = '600px';
+
+				document.body.appendChild(imgElement);
+			}, 3000);
+		}
+	</script>
 </head>
 <body>
-	<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>
-	<h2>3. HTML Element 속성 조작하기1</h2>
+<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>
+<h2>3. HTML Element 속성 조작하기1</h2>
 </body>
 </html>
