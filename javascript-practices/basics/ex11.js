@@ -27,6 +27,67 @@ setTimeout(function () {
 }, 1000);
 
 console.log("============[01.05] 함수를 생성(정의) 방법: 즉시 실행 함수");
-console.log("============[02] 기변 파라미터");
-console.log("============[03] caller(this) 바꾸기");
+let s = (function (a, b) {
+    return a + b;
+})(10, 20);
+console.log(s);
 
+console.log("============[02] 기변 파라미터");
+let sum = function (a, b) {
+    let sum = 0;
+    // for (let i= 0; i < arguments.length; i++) {
+    //     sum += arguments[i];
+    // }
+
+    // 구현2: error
+    // arguments는 Array가 아니다: 유사배열
+    // console.log(arguments instanceof Array);
+    // arguments.forEach(function (e) {
+    //     sum += e;
+    // })
+
+    // Array.prototype.forEach를 직접 호출
+    Array.prototype.forEach.call(arguments,(e) => {
+        sum += e;
+    })
+    return sum;
+}
+
+console.log(sum(1));
+console.log(sum(1, 2));
+console.log(sum(1, 2, 3, 4));
+console.log(sum(1, 2, 3, 4, 5, 6));
+
+console.log("============[03] caller(this) 바꾸기");
+let myObject = {
+    v: 'me',
+    f1: function () {
+        console.log(this.v);
+    },
+    f2: function (param) {
+        console.log(`${param} : ${this.v}`);
+    }
+};
+
+// 일반적인 객체의 함수
+myObject.f1();
+
+// apply: 호출되는 함수의 this를 파라미터로 전달되는 객체로 바꿔서 즉시 그 함수를 호출한다.
+let yourObject = {
+    v: "you"
+};
+myObject.f1.apply(yourObject);
+
+// call: 호출되는 함수의 this를 첫번째 파라미터로 전달되는 객체로 바꿔서 즉시 그 함수를 호출한다.(그 함수의 파라미터도 함께 전달된다.)
+myObject.f2.call(yourObject, "hello");
+myObject.f2("Hello");
+
+// bind: 호출되기 전의 함수의 this를 파라미터로 전달되는 객체로 바인드한다.
+let f4 = function () {
+    console.log(this.v);
+}.bind(myObject);
+let f5 = function () {
+    console.log(this.v);
+}.bind(yourObject);
+f4();
+f5();
